@@ -251,8 +251,8 @@ Navigation
 Hero
 ========================================================================== */
 .hero {
-  min-height: 750px;
-  background: url('../img/hero-min.jpg') center center;
+  min-height: 600px;
+  background: url('../img/hero-min.jpg') top left;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -268,8 +268,8 @@ Hero
     color: $txt-light;
   }
   h1 {
-    color: $txt-light;
-    margin-bottom: 40px;
+    color: rgb(132, 130, 228);
+    margin-bottom: 20px;
   }
   p.intro {
     color: $txt-light;
@@ -293,7 +293,7 @@ Hero
 }
 .fixed {
   position: fixed;
-  background-color: rgba(55, 36, 40, .88);
+  background-color: rgba(132, 130, 228, 0.8);
   z-index: 999;
   width: 100%;
 }
@@ -523,7 +523,7 @@ Features-stack
     font-family: $accent-font;
     font-weight: 300;
     font-size: 25px;
-    color: #F69D52;
+    color: rgb(132, 130, 228);
     vertical-align: top;
     margin-left: -8px;
     font-style: normal;
