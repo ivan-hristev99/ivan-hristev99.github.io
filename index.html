@@ -32,6 +32,8 @@
     <link rel="stylesheet" href="node_modules/animate.css/animate.min.css">
     <link rel="stylesheet" href="node_modules/font-awesome/css/font-awesome.min.css">
     <script src="js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+    <script src='https://api.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.js'></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.css' rel='stylesheet' />
 </head>
 <body id="top">
 <!--[if lt IE 8]>
@@ -335,7 +337,37 @@
         </div>
     </div>
 
-    <div id="map-canvas"></div>
+    <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.0/mapbox-gl-directions.js"></script>
+    <link
+    rel="stylesheet"
+    href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.0/mapbox-gl-directions.css"
+    type="text/css"
+    />
+    <div id='map-canvas' ></div>
+    <script>
+        mapboxgl.accessToken = 'pk.eyJ1IjoicmVmZmUiLCJhIjoiY2tsOXUxN2wwMGQ1bzJ3bnlvNGx4MWJsciJ9.mvXSiJKO2ECTHMAftHBSPw';
+        var map = new mapboxgl.Map({
+        container: 'map-canvas',
+        style: 'mapbox://styles/reffe/ckl9uvb2p152y17qmaomoc3va',
+        center: [-2.705, 50.794], // starting position [lng, lat]
+        zoom: 15 // starting zoom
+        });
+        var marker = new mapboxgl.Marker()
+        .setLngLat([-2.705779232273803, 50.794741213461776])
+        .addTo(map);
+        new mapboxgl.Marker(marker)
+        .setLngLat([-2.705779232273803, 50.794741213461776])
+        .setPopup(new mapboxgl.Popup({ offset: 25 }) // add popups
+            .setHTML('<h3>' + 'Mapperton' + '</h3><p>' + 'Venue of the wedding' + '</p>'))
+        .addTo(map);
+        map.addControl(
+        new MapboxDirections({
+        accessToken: mapboxgl.accessToken
+        }),
+        'top-left'
+        );
+        map.setDestination([-2.705779232273803, 50.794741213461776]);
+    </script>
     <div id="map-content-wrapper" class="container pointer-events-none">
         <div class="row">
             <div class="col-xs-offset-1 col-xs-10 col-md-offset-3 col-md-6">
